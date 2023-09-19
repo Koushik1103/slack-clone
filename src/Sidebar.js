@@ -13,9 +13,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
 import SidebarOption from "./SidebarOption";
 import db from "./firebase";
+import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
   const [channels, setChannels] = useState([]);
+  const [{ user }] = useStateValue();
 
   useEffect(() => {
     //runs when sidebar component loads
@@ -36,7 +38,7 @@ function Sidebar() {
           <h2> Hello, World!</h2>
           <h3>
             <FiberManualRecordIcon />
-            Koushik Chetlur Rajesh
+            {user?.displayName}
           </h3>
         </div>
         <CreateIcon />

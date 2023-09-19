@@ -18,7 +18,6 @@ const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
 export {
-  db,
   auth,
   provider,
 }; /*while importing import { db, auth, provider } from "./firebase"; */

@@ -5,10 +5,11 @@ import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import db from "./firebase";
 import Message from "./Message";
+import ChatInput from "./ChatInput";
 
 function Chat() {
   const { roomId } = useParams();
-  const [roomDetails, setRoomDetails] = useState("");
+  const [roomDetails, setRoomDetails] = useState(null);
   const [roomMessages, setRoomMessages] = useState([]);
   useEffect(() => {
     if (roomId) {
@@ -50,6 +51,7 @@ function Chat() {
           />
         ))}
       </div>
+      <ChatInput channelName={roomDetails?.name} channelId={roomId} />
     </div>
   );
 }
